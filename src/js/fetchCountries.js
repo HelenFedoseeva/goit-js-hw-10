@@ -1,16 +1,6 @@
 import debounce from "lodash.debounce";
 
-export const fetchCountriesName = (name) => {};
-
-const countryRef = document.getElementById("search-box");
-let name = null;
-
-countryRef.addEventListener("input", debounce(onInputHandler, 300));
-
-function onInputHandler(event) {
-  name = event.target.value;
-  console.log(name);
-
+export const fetchCountriesName = (name) => {
   fetch(`https://restcountries.com/v3.1/name/${name}`)
     .then((response) => {
       return response.json();
@@ -20,7 +10,21 @@ function onInputHandler(event) {
     })
     .catch((error) => {
       console.log(error);
-    });
+    })
+    .finally();
+};
+
+const countryRef = document.getElementById("search-box");
+let name = null;
+
+countryRef.addEventListener("input", debounce(onInputHandler, 300));
+
+function onInputHandler(event) {
+  event.preventDefault();
+  name = event.target.value;
+  console.log(name);
+
+  fetchCountriesName(name);
 }
 
 function renderCountryCard(country) {

@@ -513,20 +513,23 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "fetchCountriesName", ()=>fetchCountriesName);
 var _lodashDebounce = require("lodash.debounce");
 var _lodashDebounceDefault = parcelHelpers.interopDefault(_lodashDebounce);
-const fetchCountriesName = (name)=>{};
-const countryRef = document.getElementById("search-box");
-let name = null;
-countryRef.addEventListener("input", (0, _lodashDebounceDefault.default)(onInputHandler, 300));
-function onInputHandler(event) {
-    name = event.target.value;
-    console.log(name);
-    fetch(`https://restcountries.com/v3.1/name/${name}`).then((response)=>{
+const fetchCountriesName = (name1)=>{
+    fetch(`https://restcountries.com/v3.1/name/${name1}`).then((response)=>{
         return response.json();
     }).then((country)=>{
         console.log(country);
     }).catch((error)=>{
         console.log(error);
-    });
+    }).finally();
+};
+const countryRef = document.getElementById("search-box");
+let name = null;
+countryRef.addEventListener("input", (0, _lodashDebounceDefault.default)(onInputHandler, 300));
+function onInputHandler(event) {
+    event.preventDefault();
+    name = event.target.value;
+    console.log(name);
+    fetchCountriesName(name);
 }
 function renderCountryCard(country) {
     const markup = ``;
