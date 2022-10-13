@@ -18,3 +18,24 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+ul,
+ol {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.country-list__element {
+  display: flex;
+}
+
+
+.country-list__img{
+  margin-right: 15px;
+}
+
+.card__wrapper{
+  display: flex;
+}
