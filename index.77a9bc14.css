@@ -37,4 +37,12 @@ ul, ol {
   display: flex;
 }
 
+.country-list__card {
+  list-style: none;
+}
+
+.card__description, .card__name {
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=index.77a9bc14.css.map */
