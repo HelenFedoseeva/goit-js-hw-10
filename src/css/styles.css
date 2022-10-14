@@ -39,3 +39,15 @@ ol {
 .card__wrapper{
   display: flex;
 }
+
+.country-list__card{
+list-style: none;
+}
+
+.card__description{
+  font-weight: bold;
+}
+
+.card__name{
+  font-weight: bold;
+}
